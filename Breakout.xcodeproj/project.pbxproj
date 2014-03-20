@@ -22,6 +22,8 @@
 		261BDE6818DB71A00033D289 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 261BDE6618DB71A00033D289 /* InfoPlist.strings */; };
 		261BDE6A18DB71A00033D289 /* BreakoutTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 261BDE6918DB71A00033D289 /* BreakoutTests.m */; };
 		261BDE7418DB71E70033D289 /* CheckMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 261BDE7318DB71E70033D289 /* CheckMate.framework */; };
+		261BDE7718DB73240033D289 /* PaddleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 261BDE7618DB73240033D289 /* PaddleView.m */; };
+		261BDE7D18DB7C6A0033D289 /* PelletView.m in Sources */ = {isa = PBXBuildFile; fileRef = 261BDE7C18DB7C6A0033D289 /* PelletView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,10 @@
 		261BDE6718DB71A00033D289 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		261BDE6918DB71A00033D289 /* BreakoutTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BreakoutTests.m; sourceTree = "<group>"; };
 		261BDE7318DB71E70033D289 /* CheckMate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CheckMate.framework; sourceTree = "<group>"; };
+		261BDE7518DB73240033D289 /* PaddleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaddleView.h; sourceTree = "<group>"; };
+		261BDE7618DB73240033D289 /* PaddleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaddleView.m; sourceTree = "<group>"; };
+		261BDE7B18DB7C6A0033D289 /* PelletView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PelletView.h; sourceTree = "<group>"; };
+		261BDE7C18DB7C6A0033D289 /* PelletView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PelletView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +127,10 @@
 				261BDE5018DB71A00033D289 /* Main.storyboard */,
 				261BDE5318DB71A00033D289 /* ViewController.h */,
 				261BDE5418DB71A00033D289 /* ViewController.m */,
+				261BDE7B18DB7C6A0033D289 /* PelletView.h */,
+				261BDE7C18DB7C6A0033D289 /* PelletView.m */,
+				261BDE7518DB73240033D289 /* PaddleView.h */,
+				261BDE7618DB73240033D289 /* PaddleView.m */,
 				261BDE5618DB71A00033D289 /* Images.xcassets */,
 				261BDE4518DB71A00033D289 /* Supporting Files */,
 			);
@@ -253,6 +263,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				261BDE7718DB73240033D289 /* PaddleView.m in Sources */,
+				261BDE7D18DB7C6A0033D289 /* PelletView.m in Sources */,
 				261BDE5518DB71A00033D289 /* ViewController.m in Sources */,
 				261BDE4F18DB71A00033D289 /* AppDelegate.m in Sources */,
 				261BDE4B18DB71A00033D289 /* main.m in Sources */,

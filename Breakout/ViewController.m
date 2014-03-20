@@ -7,9 +7,20 @@
 //
 
 #import "ViewController.h"
+#import "PaddleView.h"
+#import "PelletView.h"
 
-@interface ViewController ()
-
+@interface ViewController () <UICollisionBehaviorDelegate>
+{
+    IBOutlet PaddleView *paddleView;
+    IBOutlet PelletView *pelletView;
+    
+    UIDynamicAnimator *dynamicAnimator;
+    UIPushBehavior *pushBehavior;
+    UICollisionBehavior *collisionBehavior;
+    UIDynamicItemBehavior *paddleDynamicItemBehavior;
+    UIDynamicItemBehavior *pelletDynamicItemBehavior;
+}
 @end
 
 @implementation ViewController
@@ -17,13 +28,45 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    dynamicAnimator = [[UIDynamicAnimator alloc] initWithReferenceView:self.view];
+    pushBehavior = [[UIPushBehavior alloc] initWithItems:@[pelletView] mode:UIPushBehaviorModeInstantaneous];
+    collisionBehavior = [[UICollisionBehavior alloc] initWithItems:@[pelletView, paddleView]];
+    pelletDynamicItemBehavior = [[UIDynamicItemBehavior alloc] initWithItems:@[pelletView]];
+    paddleDynamicItemBehavior = [[UIDynamicItemBehavior alloc] initWithItems:@[paddleView]];
+    
+    paddleDynamicItemBehavior.allowsRotation = NO;
+    paddleDynamicItemBehavior.density = 10000000;
+    [dynamicAnimator addBehavior:paddleDynamicItemBehavior];
+    
+    pelletDynamicItemBehavior.allowsRotation = NO;
+    pelletDynamicItemBehavior.elasticity = 1.0;
+    pelletDynamicItemBehavior.friction = 0.0;
+    pelletDynamicItemBehavior.resistance = 0.0;
+    [dynamicAnimator addBehavior:pelletDynamicItemBehavior];
+    
+    collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
+    collisionBehavior.collisionDelegate = self;
+    [dynamicAnimator addBehavior:collisionBehavior];
+    
+    pushBehavior.pushDirection = CGVectorMake(0.5, 1.0);
+    pushBehavior.active = YES;
+    pushBehavior.magnitude = 0.05;
+    [dynamicAnimator addBehavior:pushBehavior];
+    
 }
 
-- (void)didReceiveMemoryWarning
+- (IBAction)dragPaddle:(UIPanGestureRecognizer *)panGestureRecognizer
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    paddleView.center = CGPointMake([panGestureRecognizer locationInView:self.view].x, paddleView.center.y);
+    [dynamicAnimator updateItemUsingCurrentState:paddleView];
+}
+
+- (void)collisionBehavior:(UICollisionBehavior *)behavior beganContactForItem:(id<UIDynamicItem>)item withBoundaryIdentifier:(id<NSCopying>)identifier atPoint:(CGPoint)p
+{
+//    [UIView animateWithDuration:5.0 animations:^{pelletView.backgroundColor = [UIColor greenColor];
+//    }];
+    
 }
 
 @end
