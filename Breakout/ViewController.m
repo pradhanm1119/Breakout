@@ -23,6 +23,11 @@
     UIDynamicItemBehavior *paddleDynamicItemBehavior;
     UIDynamicItemBehavior *pelletDynamicItemBehavior;
     UIDynamicItemBehavior *blockDynamicBehavior;
+    
+    NSMutableArray        *blocks;
+    
+    CGFloat               rectX;
+    CGFloat               rectY;
 }
 @end
 
@@ -41,30 +46,27 @@
     
     paddleDynamicItemBehavior.allowsRotation = NO;
     paddleDynamicItemBehavior.density        = 10000000;
-    [dynamicAnimator addBehavior:paddleDynamicItemBehavior];
     
     pelletDynamicItemBehavior.allowsRotation = NO;
     pelletDynamicItemBehavior.elasticity     = 1.0;
     pelletDynamicItemBehavior.friction       = 0.0;
     pelletDynamicItemBehavior.resistance     = 0.0;
-    [dynamicAnimator addBehavior:pelletDynamicItemBehavior];
     
     collisionBehavior.translatesReferenceBoundsIntoBoundary = YES;
     collisionBehavior.collisionDelegate                     = self;
-    [dynamicAnimator addBehavior:collisionBehavior];
     
     pushBehavior.pushDirection = CGVectorMake(0.5, 1.0);
     pushBehavior.active        = YES;
     pushBehavior.magnitude     = 0.1;
-    [dynamicAnimator addBehavior:pushBehavior];
     
     blockDynamicBehavior.allowsRotation = NO;
     blockDynamicBehavior.density        = 10000000;
+
+    [dynamicAnimator addBehavior:paddleDynamicItemBehavior];
+    [dynamicAnimator addBehavior:pelletDynamicItemBehavior];
+    [dynamicAnimator addBehavior:collisionBehavior];
+    [dynamicAnimator addBehavior:pushBehavior];
     [dynamicAnimator addBehavior:blockDynamicBehavior];
-    
-//    CGFloat whereIsPelletOnY = pelletView.frame.origin.y;
-//    NSLog(@"%f", whereIsPelletOnY);
-    
 }
 
 - (IBAction)dragPaddle:(UIPanGestureRecognizer *)panGestureRecognizer
@@ -89,5 +91,6 @@
         [blockView removeFromSuperview];
     }
 }
+
 
 @end
