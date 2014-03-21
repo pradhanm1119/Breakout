@@ -84,7 +84,10 @@
 
 - (void)collisionBehavior:(UICollisionBehavior *)behavior beganContactForItem:(id<UIDynamicItem>)item1 withItem:(id<UIDynamicItem>)item2 atPoint:(CGPoint)p
 {
-
+    if ([item2 isEqual:blockView] || [item1 isEqual:blockView]) {
+        [collisionBehavior removeItem:blockView];
+        [blockView removeFromSuperview];
+    }
 }
 
 @end
