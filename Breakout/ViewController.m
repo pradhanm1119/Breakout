@@ -51,8 +51,11 @@
     
     pushBehavior.pushDirection = CGVectorMake(0.5, 1.0);
     pushBehavior.active = YES;
-    pushBehavior.magnitude = 0.05;
+    pushBehavior.magnitude = 0.1;
     [dynamicAnimator addBehavior:pushBehavior];
+    
+//    CGFloat whereIsPelletOnY = pelletView.frame.origin.y;
+//    NSLog(@"%f", whereIsPelletOnY);
     
 }
 
@@ -64,9 +67,11 @@
 
 - (void)collisionBehavior:(UICollisionBehavior *)behavior beganContactForItem:(id<UIDynamicItem>)item withBoundaryIdentifier:(id<NSCopying>)identifier atPoint:(CGPoint)p
 {
-//    [UIView animateWithDuration:5.0 animations:^{pelletView.backgroundColor = [UIColor greenColor];
-//    }];
-    
+    if (pelletView.frame.origin.y >= (self.view.frame.size.height-(pelletView.frame.size.height*2)))
+    {
+        pelletView.center = self.view.center;
+        [dynamicAnimator updateItemUsingCurrentState:pelletView];
+    }
 }
 
 @end
