@@ -24,6 +24,7 @@
 		261BDE7418DB71E70033D289 /* CheckMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 261BDE7318DB71E70033D289 /* CheckMate.framework */; };
 		261BDE7718DB73240033D289 /* PaddleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 261BDE7618DB73240033D289 /* PaddleView.m */; };
 		261BDE7D18DB7C6A0033D289 /* PelletView.m in Sources */ = {isa = PBXBuildFile; fileRef = 261BDE7C18DB7C6A0033D289 /* PelletView.m */; };
+		261BDE8018DBC66D0033D289 /* BlockView.m in Sources */ = {isa = PBXBuildFile; fileRef = 261BDE7F18DBC66D0033D289 /* BlockView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		261BDE7618DB73240033D289 /* PaddleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaddleView.m; sourceTree = "<group>"; };
 		261BDE7B18DB7C6A0033D289 /* PelletView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PelletView.h; sourceTree = "<group>"; };
 		261BDE7C18DB7C6A0033D289 /* PelletView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PelletView.m; sourceTree = "<group>"; };
+		261BDE7E18DBC66D0033D289 /* BlockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockView.h; sourceTree = "<group>"; };
+		261BDE7F18DBC66D0033D289 /* BlockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +130,8 @@
 				261BDE5018DB71A00033D289 /* Main.storyboard */,
 				261BDE5318DB71A00033D289 /* ViewController.h */,
 				261BDE5418DB71A00033D289 /* ViewController.m */,
+				261BDE7E18DBC66D0033D289 /* BlockView.h */,
+				261BDE7F18DBC66D0033D289 /* BlockView.m */,
 				261BDE7B18DB7C6A0033D289 /* PelletView.h */,
 				261BDE7C18DB7C6A0033D289 /* PelletView.m */,
 				261BDE7518DB73240033D289 /* PaddleView.h */,
@@ -263,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				261BDE8018DBC66D0033D289 /* BlockView.m in Sources */,
 				261BDE7718DB73240033D289 /* PaddleView.m in Sources */,
 				261BDE7D18DB7C6A0033D289 /* PelletView.m in Sources */,
 				261BDE5518DB71A00033D289 /* ViewController.m in Sources */,
@@ -480,6 +486,7 @@
 				261BDE6F18DB71A00033D289 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		261BDE7018DB71A00033D289 /* Build configuration list for PBXNativeTarget "BreakoutTests" */ = {
 			isa = XCConfigurationList;
@@ -488,6 +495,7 @@
 				261BDE7218DB71A00033D289 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
