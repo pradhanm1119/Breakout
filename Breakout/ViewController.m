@@ -29,7 +29,7 @@
     CGFloat               rectX;
     CGFloat               rectY;
 }
-//@property BlockView *tempBlock;
+
 @end
 
 @implementation ViewController
