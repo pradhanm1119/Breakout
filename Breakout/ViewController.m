@@ -142,69 +142,6 @@
     [dynamicAnimator addBehavior:collisionBehavior];
     [dynamicAnimator addBehavior:pushBehavior];
     [dynamicAnimator addBehavior:blockDynamicBehavior];
-    
-//    for (int i = 0; i < 50; i++)
-//    {
-//        rectX = arc4random() % 280;
-//        rectY = arc4random() % 200;
-//        
-//        blockView = [[BlockView alloc] initWithFrame:CGRectMake(rectX, rectY, 40, 40)];
-//        blockDynamicBehavior = [[UIDynamicItemBehavior alloc] initWithItems:@[blockView]];
-//        
-//        if ((rectX >= 0) && (rectX < 90))
-//        {
-//            if ((int)rectX % 2 == 0)
-//            {
-//                blockView.backgroundColor = customColor1;
-//                [collisionBehavior addItem:blockView];
-//            }
-//            else
-//            {
-//                blockView.backgroundColor = customColor2;
-//                [collisionBehavior addItem:blockView];
-//            }
-//        }
-//        else if ((rectX >= 90) && (rectX < 180))
-//        {
-//            if ((int)rectX % 2 == 0)
-//            {
-//                blockView.backgroundColor = customColor3;
-//                [collisionBehavior addItem:blockView];
-//            }
-//            else
-//            {
-//                blockView.backgroundColor = customColor4;
-//                [collisionBehavior addItem:blockView];
-//            }
-//        }
-//        else
-//        {
-//            if ((int)rectX % 2 == 0)
-//            {
-//                blockView.backgroundColor = customColor5;
-//                [collisionBehavior addItem:blockView];
-//            }
-//            else
-//            {
-//                blockView.backgroundColor = customColor6;
-//                [collisionBehavior addItem:blockView];
-//            }
-//        }
-//        
-//        //[self.view addSubview:blockView];
-//        if (i == 0)
-//        {
-//            blocks = [[NSMutableArray alloc]initWithObjects:blockView, nil];
-//            blockDynamicBehavior = [[UIDynamicItemBehavior alloc] initWithItems:@[blockView]];
-//        }
-//        else
-//        {
-//            [blocks addObject:blockView];
-//            [blockDynamicBehavior addItem:blockView];
-//        }
-//        [self.view addSubview:blockView];
-//        //[collisionBehavior addItem:blockView];
-//    }
 }
 
 - (IBAction)dragPaddle:(UIPanGestureRecognizer *)panGestureRecognizer
@@ -224,29 +161,15 @@
 
 - (void)collisionBehavior:(UICollisionBehavior *)behavior beganContactForItem:(id<UIDynamicItem>)item1 withItem:(id<UIDynamicItem>)item2 atPoint:(CGPoint)p
 {
-//    if ([item2 isEqual:blockView] || [item1 isEqual:blockView]) {
-//        [collisionBehavior removeItem:blockView];
-//        [blockView removeFromSuperview];
-//    }
-    
     if ([item2 isKindOfClass:[BlockView class]])
     {
         [collisionBehavior removeItem:item2];
         [blocks removeObject:item2];
+        
         //you can only remove a view from itʻs Superview
         [(BlockView*)item2 removeFromSuperview];
         [dynamicAnimator updateItemUsingCurrentState:item2];
     }
-    
-//    if ([item1 isMemberOfClass:[BlockView class]])
-//    {
-//        [collisionBehavior removeItem:item1];
-//        [blocks removeObject:item1];
-//        //you can only remove a view from itʻs Superview
-//        [(BlockView*)item2 removeFromSuperview];
-//        [dynamicAnimator updateItemUsingCurrentState:item1];
-//    }
 }
-
 
 @end
