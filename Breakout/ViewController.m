@@ -50,7 +50,6 @@
     collisionBehavior         = [[UICollisionBehavior alloc] initWithItems:@[pelletView, paddleView, blockView]];
     pelletDynamicItemBehavior = [[UIDynamicItemBehavior alloc] initWithItems:@[pelletView]];
     paddleDynamicItemBehavior = [[UIDynamicItemBehavior alloc] initWithItems:@[paddleView]];
-    //blockDynamicBehavior      = [[UIDynamicItemBehavior alloc] initWithItems:@[blockView]];
     
     paddleDynamicItemBehavior.allowsRotation = NO;
     paddleDynamicItemBehavior.density        = 10000000;
@@ -66,17 +65,14 @@
     
     pushBehavior.pushDirection = CGVectorMake(0.5, 1.0);
     pushBehavior.active        = YES;
-    pushBehavior.magnitude     = 0.5;
+    pushBehavior.magnitude     = 0.3;
     
-    blockDynamicBehavior.allowsRotation = NO;
-    blockDynamicBehavior.density        = 10000000;
-    
-    for (int i = 0; i < 50; i++)
+    for (int i = 0; i < 100; i++)
     {
         rectX = arc4random() % 280;
         rectY = arc4random() % 200;
         
-        blockView = [[BlockView alloc] initWithFrame:CGRectMake(rectX, rectY, 40, 40)];
+        blockView = [[BlockView alloc] initWithFrame:CGRectMake(rectX, rectY, 40, 20)];
         blockDynamicBehavior = [[UIDynamicItemBehavior alloc] initWithItems:@[blockView]];
         
         if ((rectX >= 0) && (rectX < 90))
@@ -84,39 +80,48 @@
             if ((int)rectX % 2 == 0)
             {
                 blockView.backgroundColor = customColor1;
-                [collisionBehavior addItem:blockView];
             }
             else
             {
                 blockView.backgroundColor = customColor2;
-                [collisionBehavior addItem:blockView];
             }
+            blockDynamicBehavior.allowsRotation = NO;
+            blockDynamicBehavior.density        = 1;
+            blockDynamicBehavior.elasticity     = 1;
+            blockDynamicBehavior.resistance     = 0;
+            [collisionBehavior addItem:blockView];
         }
         else if ((rectX >= 90) && (rectX < 180))
         {
             if ((int)rectX % 2 == 0)
             {
                 blockView.backgroundColor = customColor3;
-                [collisionBehavior addItem:blockView];
             }
             else
             {
                 blockView.backgroundColor = customColor4;
-                [collisionBehavior addItem:blockView];
             }
+            blockDynamicBehavior.allowsRotation = NO;
+            blockDynamicBehavior.density        = 1;
+            blockDynamicBehavior.elasticity     = 1;
+            blockDynamicBehavior.resistance     = 0;
+            [collisionBehavior addItem:blockView];
         }
         else
         {
             if ((int)rectX % 2 == 0)
             {
                 blockView.backgroundColor = customColor5;
-                [collisionBehavior addItem:blockView];
             }
             else
             {
                 blockView.backgroundColor = customColor6;
-                [collisionBehavior addItem:blockView];
             }
+            blockDynamicBehavior.allowsRotation = NO;
+            blockDynamicBehavior.density        = 1;
+            blockDynamicBehavior.elasticity     = 1;
+            blockDynamicBehavior.resistance     = 0;
+            [collisionBehavior addItem:blockView];
         }
         
         if (i == 0)
